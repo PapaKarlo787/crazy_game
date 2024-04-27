@@ -2,7 +2,7 @@ animations:
 	pusha
 	mov al, [cs:.count]
 	inc al
-	cmp al, 6
+	cmp al, 3
 	jne .skip
 	mov cx, 9
 	mov bp, player
