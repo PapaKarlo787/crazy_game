@@ -81,7 +81,7 @@ mov word [cs:npc5.data+20], 0
 
 mov bx, 301
 mov ax, lion
-mov cx, startup_ds + 0x2000
+mov cx, startup_ds + 0x3000
 call play_mus
 
 
