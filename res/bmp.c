@@ -62,19 +62,19 @@ int main(int n, char** names) {
 		auto fo = fopen(names[i], "wb");
 		BMP header;
 		
-		
 		fread(&header, sizeof(BMP), 1, fi);
 		if (header.bitCount != 8) {
 			cout << "wrong file format" << endl;
 			return -1;
 		}
+		
+		header.palSize = 256;
 		char* palete = (char*)malloc(4 * header.palSize);
 		char* data = (char*)malloc(header.dataSize);
 		fread(palete, 4, header.palSize, fi);
 		fseek(fi, header.dataOffset, 0);
 		cout << fread(data, 1, header.dataSize, fi) << endl;
-		if (i == 1)
-			convertPalete(palete, header.palSize);
+		convertPalete(palete, header.palSize);
 		convertBMP(data, header.height, header.width, fo);
 		free(palete);
 		free(data);

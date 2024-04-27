@@ -2,19 +2,20 @@ stop:
 	mov word [cs:mus_handler.base], 0
 	ret
 
-play:
-	cli
+play_mus:
 	mov [cs:mus_handler.base], ax
 	mov word [cs:mus_handler.pointer], 0
 	mov word [cs:mus_handler.size], bx
-	mov bx, ax
-	mov al, [ds:bx+2]
-	mov bx, [ds:bx]
-	mov [cs:mus_handler.delay], al
+	mov word [cs:mus_handler.ds], cx
+	mov ds, cx
+	xchg ax, bx
+	mov bp, [ds:bx]	
 
-	in al, 0x61
-	and al, 0xfc
-	out 0x61, al
+	add bx, ax
+	add bx, ax
+	mov al, [ds:bx]
+	mov bx, bp
+	mov [cs:mus_handler.delay], al
 
 	mov al, 0xb6
 	out 0x43, al
@@ -27,15 +28,17 @@ play:
 	in al, 0x61
 	or al, 3
 	out 0x61, al
-	sti
 	ret
 
 
 mus_handler:
+ret
+	push ds
 	cmp word[cs:mus_handler.base], 0
 	je .end_ret
+	mov ds, [cs:mus_handler.ds]
 	push bx
-	mov bx, [cs:mus_handler.delay]
+	mov bl, [cs:mus_handler.delay]
 	dec bl
 	jnz .end
 	mov bx, [cs:mus_handler.pointer]
@@ -46,10 +49,13 @@ mus_handler:
 .next:
 	mov [cs:mus_handler.pointer], bx
 	push bx
-	shl bx, 1
+	push ax
+	mov ax, 3
+	xchg ax, bx
+	mul bx
+	mov bx, ax
 	add bx, [cs:mus_handler.base]
 	mov bx, [ds:bx] ;freq
-	push ax
 	in al, 0x61
 	and al, 0xfc
 	out 0x61, al
@@ -72,6 +78,7 @@ mus_handler:
 	mov [cs:mus_handler.delay], bl
 	pop bx
 .end_ret:
+	pop ds
 	ret
 .delay:
 	db 0
@@ -80,4 +87,6 @@ mus_handler:
 .size:
 	dw 0
 .base:
+	dw 0
+.ds:
 	dw 0

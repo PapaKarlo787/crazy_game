@@ -21,8 +21,12 @@ mov word [cs:player.data+10], player_running_left_2
 mov word [cs:player.data+12], player_running_left_3
 mov word [cs:player.data], 1
 mov word [cs:player.ds], startup_ds + 0x1000
-mov word [cs:player.coord], 20
-mov word [cs:player.coord+2], 10
+mov word [cs:player.coord], 30
+mov word [cs:player.coord+2], 35
+mov bx, 301
+mov ax, lion
+mov cx, startup_ds + 0x2000
+call play_mus
 
 
 jmp $

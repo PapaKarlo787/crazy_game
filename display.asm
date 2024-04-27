@@ -42,9 +42,9 @@ refresh_screen:
 	mov bx, 20
 	mul bx
 	mov bx, es
-	add bx, ax ; coord x
+	add bx, ax 
 	mov es, bx
-	mov ax, [cs:bp + 2]
+	mov ax, [cs:bp + 2]; coord x
 	mov di, ax
 	push bp
 	mov bp, gs

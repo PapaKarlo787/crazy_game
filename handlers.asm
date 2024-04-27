@@ -20,10 +20,55 @@ setup_handlers:
 
 
 keyboard:
-	
-	
+	pusha
+	in al, 60h
+	push ax
+	xor al, [cs:.pressed]
+	cmp al, 0x80
+	pop ax
+	je .stop
+	cmp byte [cs:.pressed], 0
+	jne .ret_kbd
+	cmp al, 0x1e
+	je .left
+	cmp al, 0x20
+	je .right
+	cmp al, 0x1f
+	je .down
+	cmp al, 0x11
+	je .up
+.ret_kbd:
+	popa
 	jmp far[cs:keyboard.old]
 	
+	
+.left:
+	mov word[cs:.coord_move], -8
+	mov byte[cs:.pressed], al
+	jmp .ret_kbd
+
+.right:
+	mov word[cs:.coord_move], 8
+	mov byte[cs:.pressed], al
+	jmp .ret_kbd
+.up:
+	mov word[cs:.coord_move+2], -8
+	mov byte[cs:.pressed], al
+	jmp .ret_kbd
+.down:
+	mov word[cs:.coord_move+2], 8
+	mov byte[cs:.pressed], al
+	jmp .ret_kbd
+.stop:
+	mov word[cs:.coord_move], 0
+	mov word[cs:.coord_move+2], 0
+	mov byte[cs:.pressed], 0
+	jmp .ret_kbd
+
+.coord_move:
+	dw 0, 0
+.pressed:
+	db 0
 .old:
 	dw 0, 0
 
