@@ -32,7 +32,6 @@ play_mus:
 
 
 mus_handler:
-ret
 	push ds
 	cmp word[cs:mus_handler.base], 0
 	je .end_ret
