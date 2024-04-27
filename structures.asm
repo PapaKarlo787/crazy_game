@@ -94,4 +94,72 @@ npc8:
 .pics:
 	dw 0, 0, 0, 0, 0, 0, 0, 0
 
+npc9:
+.data:
+	dw -1
+.coord:
+	dw 0, 0
+.ds:
+	dw 0
+.pics:
+	dw 0, 0, 0, 0, 0, 0, 0, 0
 
+npc10:
+.data:
+	dw -1
+.coord:
+	dw 0, 0
+.ds:
+	dw 0
+.pics:
+	dw 0, 0, 0, 0, 0, 0, 0, 0
+
+npc11:
+.data:
+	dw -1
+.coord:
+	dw 0, 0
+.ds:
+	dw 0
+.pics:
+	dw 0, 0, 0, 0, 0, 0, 0, 0
+
+npc12:
+.data:
+	dw -1
+.coord:
+	dw 0, 0
+.ds:
+	dw 0
+.pics:
+	dw 0, 0, 0, 0, 0, 0, 0, 0
+
+npc13:
+.data:
+	dw -1
+.coord:
+	dw 0, 0
+.ds:
+	dw 0
+.pics:
+	dw 0, 0, 0, 0, 0, 0, 0, 0
+
+npc14:
+.data:
+	dw -1
+.coord:
+	dw 0, 0
+.ds:
+	dw 0
+.pics:
+	dw 0, 0, 0, 0, 0, 0, 0, 0
+
+npc15:
+.data:
+	dw -1
+.coord:
+	dw 0, 0
+.ds:
+	dw 0
+.pics:
+	dw 0, 0, 0, 0, 0, 0, 0, 0

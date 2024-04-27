@@ -91,7 +91,7 @@ keyboard:
 	dw 0, 0
 
 timer:
-	call mus_handler
+	;call mus_handler
 	call animations
 	jmp far[cs:timer.old]
 	

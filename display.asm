@@ -7,7 +7,7 @@ refresh_screen:
 	mov ds, cx
 	mov cx, 320*200
 	rep movsb
-	mov cx, 9
+	mov cx, 16
 	mov bp, player
 .lp_print:
 	mov ax, [cs:bp]

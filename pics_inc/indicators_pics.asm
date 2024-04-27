@@ -33,12 +33,12 @@ time8:
 angry1:
 	file "../res/indicators/a0.pmb"
 angry2:
-	file "../res/indicators/a0.pmb"
+	file "../res/indicators/a1.pmb"
 angry3:
-	file "../res/indicators/a0.pmb"
+	file "../res/indicators/a2.pmb"
 angry4:
-	file "../res/indicators/a0.pmb"
+	file "../res/indicators/a3.pmb"
 angry5:
-	file "../res/indicators/a0.pmb"
+	file "../res/indicators/a4.pmb"
 angry6:
-	file "../res/indicators/a0.pmb"
+	file "../res/indicators/a5.pmb"

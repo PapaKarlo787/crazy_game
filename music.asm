@@ -50,7 +50,6 @@ mus_handler:
 	push bx
 	push ax
 	shl bx, 1
-	mov bx, ax
 	add bx, [cs:mus_handler.base]
 	mov bx, [ds:bx] ;freq
 	in al, 0x61
