@@ -48,8 +48,7 @@ keyboard:
 	mov word[cs:player+8], player_running_left_1
 	mov word[cs:player+10], player_running_left_2
 	mov word[cs:player+12], player_running_left_3
-	mov word[cs:player+14], player_running_left_4
-	mov word[cs:player+16], 0
+	mov word[cs:player+14], 0
 	jmp .ret_kbd
 
 .right:
@@ -58,8 +57,7 @@ keyboard:
 	mov word[cs:player+8], player_running_right_1
 	mov word[cs:player+10], player_running_right_2
 	mov word[cs:player+12], player_running_right_3
-	mov word[cs:player+14], player_running_right_4
-	mov word[cs:player+16], 0
+	mov word[cs:player+14], 0
 	jmp .ret_kbd
 .up:
 	mov word[cs:.coord_move+2], -8

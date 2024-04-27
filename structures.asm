@@ -12,6 +12,8 @@ player:
 	dw 0
 .pics:
 	dw 0, 0, 0, 0, 0, 0, 0, 0
+.speed:
+	dw 0, 0
 player_struct_size = $-player
 
 npc1:

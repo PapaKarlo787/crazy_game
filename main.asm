@@ -36,8 +36,8 @@ mov word [cs:player.coord+2], 35
 
 mov word [cs:npc1.data], 0
 mov word [cs:npc1.ds], startup_ds + 0x2000
-mov word [cs:npc1.coord], 30
-mov word [cs:npc1.coord+2], 35
+mov word [cs:npc1.coord], 70
+mov word [cs:npc1.coord+2], 0
 mov word [cs:npc1.data+8], enemy_standing_1
 mov word [cs:npc1.data+10], enemy_standing_2
 mov word [cs:npc1.data+12], enemy_standing_3

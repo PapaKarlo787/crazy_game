@@ -8,7 +8,7 @@ player_standing_2:
 
 player_standing_3:
 	file "../res/player/st3.pmb"
-	
+
 
 player_running_left_1:
 	file "../res/player/rl1.pmb"
@@ -21,9 +21,6 @@ player_running_left_2:
 player_running_left_3:
 	file "../res/player/rl3.pmb"
 	
-
-player_running_left_4:
-	file "../res/player/rl4.pmb"
 	
 
 player_running_right_1:
@@ -37,9 +34,6 @@ player_running_right_2:
 player_running_right_3:
 	file "../res/player/rr3.pmb"
 	
-
-player_running_right_4:
-	file "../res/player/rr4.pmb"
 	
 
 player_running_up_1:
