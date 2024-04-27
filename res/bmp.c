@@ -43,7 +43,8 @@ void convertPalete(char* pal, int size) {
 void convertBMP(char* bmp, int h, int w, FILE* f) {
 	fwrite(&w, 2, 1, f);
 	fwrite(&h, 2, 1, f);
-	for (int i = (h - 1) * w; i != -w; i -= w) {
+	int _w = (w + 3) / 4 * 4;
+	for (int i = (h - 1) * _w; i != -_w; i -= _w) {
 		fwrite(&bmp[i], w, 1, f);
 	}
 }
@@ -63,15 +64,14 @@ int main(int n, char** names) {
 		
 		
 		fread(&header, sizeof(BMP), 1, fi);
-		if (header.dataSize != header.width * header.height ||
-			header.bitCount != 8 ||
-			header.fileSize - header.dataOffset != header.dataSize) {
+		if (header.bitCount != 8) {
 			cout << "wrong file format" << endl;
 			return -1;
 		}
 		char* palete = (char*)malloc(4 * header.palSize);
 		char* data = (char*)malloc(header.dataSize);
 		fread(palete, 4, header.palSize, fi);
+		fseek(fi, header.dataOffset, 0);
 		cout << fread(data, 1, header.dataSize, fi) << endl;
 		if (i == 1)
 			convertPalete(palete, header.palSize);

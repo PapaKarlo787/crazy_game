@@ -9,7 +9,7 @@ collised:
 
 player:
 .data:
-	dw 0
+	dw -1
 .coord:
 	dw 0, 0
 .ds:
@@ -17,7 +17,7 @@ player:
 
 npc1:
 .data:
-	dw 0
+	dw -1
 .coord:
 	dw 0, 0
 .ds:
@@ -25,7 +25,7 @@ npc1:
 
 npc2:
 .data:
-	dw 0
+	dw -1
 .coord:
 	dw 0, 0
 .ds:
@@ -33,7 +33,7 @@ npc2:
 
 npc3:
 .data:
-	dw 0
+	dw -1
 .coord:
 	dw 0, 0
 .ds:
@@ -41,7 +41,7 @@ npc3:
 
 npc4:
 .data:
-	dw 0
+	dw -1
 .coord:
 	dw 0, 0
 .ds:
@@ -49,7 +49,7 @@ npc4:
 
 npc5:
 .data:
-	dw 0
+	dw -1
 .coord:
 	dw 0, 0
 .ds:
@@ -57,15 +57,15 @@ npc5:
 
 npc6:
 .data:
-	dw 0
+	dw -1
 .coord:
 	dw 0, 0
 .ds:
-	dw 0
+	dw -1
 
 npc7:
 .data:
-	dw 0
+	dw -1
 .coord:
 	dw 0, 0
 .ds:
@@ -73,7 +73,7 @@ npc7:
 
 npc8:
 .data:
-	dw 0
+	dw -1
 .coord:
 	dw 0, 0
 .ds:

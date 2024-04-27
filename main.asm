@@ -15,6 +15,11 @@ rep outsb
 
 mov word [cs:background], background_pic
 mov word [cs:background.ds], startup_ds
+mov word [cs:player.data], player_standing_1
+mov word [cs:player.ds], startup_ds + 0x1040
+mov word [cs:player.coord], -20
+mov word [cs:player.coord+2], -10
+
 
 
 call refresh_screen
@@ -30,4 +35,4 @@ include "music.asm"
 include "structures.asm"
 times 65536-512-$ db 0
 include "pics.asm"
-times 1440*1024-$-65536 db 0
+times 1440*1024-$-65536*3 db 0

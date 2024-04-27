@@ -8,28 +8,30 @@ pusha
 int 13h
 popa
 mov bx, cx
-mov cx, 22
+mov cx, 24
 
 upload_lp:
 	push cx
 	mov cx, bx
-	cmp al, 0x12
+	cmp al, 18
 	jne .upread
 .end_upread:
 	add ch, dh
 	xor dh, 1
 	mov bx, es
-	add bx, 0x240
+	add bx, 18*32;512 >> 4
+	
 	push bx
 	and bx, 0xfff
 	sub bx, 0x1000
 	neg bx
-	cmp bx, 0x240
+	cmp bx, 18*32;512 >> 4
 	jae .cont
 	shr bx, 5
 	mov al, bl
 .cont:
 	pop bx
+	
 	mov es, bx
 	xor bx, bx
 	pusha
@@ -54,18 +56,18 @@ upload_lp:
 	mov es, bx
 	pop ax
 	xor bx, bx
-	sub al, 0x12
+	sub al, 18
 	neg al
 	pusha
 	int 13h
 	popa
 	jc load_err
-	mov ax, 0x0112
+	mov al, 18
 	pop es
 	jmp .end_upread
 
 load_err:
-	push ax
+	push cx
 	xor ax, ax
 	int 10h
 	push 0xb800

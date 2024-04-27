@@ -7,7 +7,7 @@ pop es
 xor bx, bx
 int 13h
 
-push 0x1040
+push startup_ds
 pop ds
 push 0xA000
 pop es

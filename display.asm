@@ -7,12 +7,11 @@ refresh_screen:
 	mov ds, cx
 	mov cx, 320*200
 	rep movsb
-	jmp $
 	mov cx, 9
 	mov bp, player
 .lp_print:
 	mov ax, [cs:bp]
-	test ax, ax
+	cmp ax, -1
 	jz .end_lp_print
 	push cx
 	call .print_player
@@ -27,46 +26,59 @@ refresh_screen:
 
 
 .print_player:
-	mov ax, [cs:bp+6]
+	push es
+	mov ax, [cs:bp + 6] ;ds
 	mov ds, ax
 	mov si, [cs:bp]
-	mov ax, [cs:bp+4]
-	mov bx, 320
+	add si, 4
+	mov ax, [cs:bp + 4] ; coord y
+	test ax, ax
+	jnl .above_zero
+	xor ax, ax
+.above_zero:
+	mov bx, 20
 	mul bx
-	add ax, [cs:bp+2]
+	mov bx, es
+	add bx, ax ; coord x
+	mov es, bx
+	mov ax, [cs:bp + 2]
 	mov di, ax
-	mov ch, 0
-	mov cl, [cs:bp+7]
+	push bp
+	mov bp, [cs:bp]
+	mov cx, [ds:bp+2]
+	pop bp
 .player_lp:
 	push cx
-	mov cl, [cs:bp+6]
+	push bp
+	mov bp, [cs:bp]
+	mov cx, [ds:bp]
+	pop bp
 	push di
-.player_sub_lp:
+.lp_psl:
 	lodsb
 	test al, al
 	jz .skip_psl
-	push ax
-	mov ax, 320
-	xchg ax, di
-	push ax
-	xor dx, dx
-	div di
-	pop di
-	pop ax
-	cmp dx, 320
+	cmp di, 320
 	jae .skip_psl
+	test di, di
+	jl .skip_psl
 	stosb
-	loop .player_sub_lp
+	loop .lp_psl
+	jmp .end_skip_psl
 .skip_psl:
 	inc di
-	loop .player_sub_lp
+	loop .lp_psl
+.end_skip_psl:
 	pop di
-	add di, 200
+	add bx, 20
+	mov es, bx
 	pop cx
+	cmp bx, 0xAFA0
+	jae .end_player
 	loop .player_lp
+.end_player:
+	pop es
 	ret
-
-
 
 animations:
 	
