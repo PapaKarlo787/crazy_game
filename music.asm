@@ -28,7 +28,6 @@ play_mus:
 	in al, 0x61
 	or al, 3
 	out 0x61, al
-	jmp $
 	ret
 
 
