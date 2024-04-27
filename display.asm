@@ -1,5 +1,5 @@
 refresh_screen:
-	
+
 .print_background:
 	xor di, di
 	mov si, [cs:background]
@@ -17,7 +17,7 @@ refresh_screen:
 	call .print_player
 	pop cx
 .end_lp_print:
-	add bp, 8
+	add bp, player_struct_size
 	loop .lp_print
 
 .end_print:
@@ -30,6 +30,9 @@ refresh_screen:
 	mov ax, [cs:bp + 6] ;ds
 	mov ds, ax
 	mov si, [cs:bp]
+	shl si, 1
+	mov si, [cs:bp+8+si]; pic pointer
+	mov gs, si
 	add si, 4
 	mov ax, [cs:bp + 4] ; coord y
 	test ax, ax
@@ -44,13 +47,13 @@ refresh_screen:
 	mov ax, [cs:bp + 2]
 	mov di, ax
 	push bp
-	mov bp, [cs:bp]
+	mov bp, gs
 	mov cx, [ds:bp+2]
 	pop bp
 .player_lp:
 	push cx
 	push bp
-	mov bp, [cs:bp]
+	mov bp, gs
 	mov cx, [ds:bp]
 	pop bp
 	push di
@@ -78,8 +81,4 @@ refresh_screen:
 	loop .player_lp
 .end_player:
 	pop es
-	ret
-
-animations:
-	
 	ret

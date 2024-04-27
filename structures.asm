@@ -3,10 +3,6 @@ background:
 .ds:
 	dw 0
 
-collised:
-	db 0, 0, 0, 0, 0, 0, 0, 0
-
-
 player:
 .data:
 	dw -1
@@ -14,6 +10,9 @@ player:
 	dw 0, 0
 .ds:
 	dw 0
+.pics:
+	dw 0, 0, 0, 0
+player_struct_size = $-player
 
 npc1:
 .data:
@@ -22,6 +21,8 @@ npc1:
 	dw 0, 0
 .ds:
 	dw 0
+.pics:
+	dw 0, 0, 0, 0
 
 npc2:
 .data:
@@ -30,6 +31,8 @@ npc2:
 	dw 0, 0
 .ds:
 	dw 0
+.pics:
+	dw 0, 0, 0, 0
 
 npc3:
 .data:
@@ -38,6 +41,8 @@ npc3:
 	dw 0, 0
 .ds:
 	dw 0
+.pics:
+	dw 0, 0, 0, 0
 
 npc4:
 .data:
@@ -46,6 +51,8 @@ npc4:
 	dw 0, 0
 .ds:
 	dw 0
+.pics:
+	dw 0, 0, 0, 0
 
 npc5:
 .data:
@@ -54,6 +61,8 @@ npc5:
 	dw 0, 0
 .ds:
 	dw 0
+.pics:
+	dw 0, 0, 0, 0
 
 npc6:
 .data:
@@ -61,7 +70,9 @@ npc6:
 .coord:
 	dw 0, 0
 .ds:
-	dw -1
+	dw 0
+.pics:
+	dw 0, 0, 0, 0
 
 npc7:
 .data:
@@ -70,6 +81,8 @@ npc7:
 	dw 0, 0
 .ds:
 	dw 0
+.pics:
+	dw 0, 0, 0, 0
 
 npc8:
 .data:
@@ -78,3 +91,7 @@ npc8:
 	dw 0, 0
 .ds:
 	dw 0
+.pics:
+	dw 0, 0, 0, 0
+
+

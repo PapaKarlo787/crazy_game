@@ -12,23 +12,26 @@ mov si, palete
 mov cx, 768
 inc dx
 rep outsb
+call setup_handlers
 
 mov word [cs:background], background_pic
 mov word [cs:background.ds], startup_ds
-mov word [cs:player.data], player_standing_1
-mov word [cs:player.ds], startup_ds + 0x1040
-mov word [cs:player.coord], -20
-mov word [cs:player.coord+2], -10
+mov word [cs:player.data+8], player_running_left_1
+mov word [cs:player.data+10], player_running_left_2
+mov word [cs:player.data+12], player_running_left_3
+mov word [cs:player.data], 1
+mov word [cs:player.ds], startup_ds + 0x1000
+mov word [cs:player.coord], 20
+mov word [cs:player.coord+2], 10
 
 
-
-call refresh_screen
 jmp $
 
 ;todo
 ; реализовать обработку анимаций неигроковых спрайтов
 ; 
 
+include "animations.asm"
 include "handlers.asm"
 include "display.asm"
 include "music.asm"
