@@ -45,24 +45,44 @@ keyboard:
 .left:
 	mov word[cs:.coord_move], -8
 	mov byte[cs:.pressed], al
+	mov word[cs:player+8], player_running_left_1
+	mov word[cs:player+10], player_running_left_2
+	mov word[cs:player+12], player_running_left_3
+	mov word[cs:player+14], player_running_left_4
+	mov word[cs:player+16], 0
 	jmp .ret_kbd
 
 .right:
 	mov word[cs:.coord_move], 8
 	mov byte[cs:.pressed], al
+	mov word[cs:player+8], player_running_right_1
+	mov word[cs:player+10], player_running_right_2
+	mov word[cs:player+12], player_running_right_3
+	mov word[cs:player+14], player_running_right_4
+	mov word[cs:player+16], 0
 	jmp .ret_kbd
 .up:
 	mov word[cs:.coord_move+2], -8
 	mov byte[cs:.pressed], al
+	mov word[cs:player+8], player_running_up_1
+	mov word[cs:player+10], player_running_up_2
+	mov word[cs:player+12], 0
 	jmp .ret_kbd
 .down:
 	mov word[cs:.coord_move+2], 8
 	mov byte[cs:.pressed], al
+	mov word[cs:player+8], player_running_down_1
+	mov word[cs:player+10], player_running_down_2
+	mov word[cs:player+12], 0
 	jmp .ret_kbd
 .stop:
 	mov word[cs:.coord_move], 0
 	mov word[cs:.coord_move+2], 0
 	mov byte[cs:.pressed], 0
+	mov word[cs:player+8], player_standing_1
+	mov word[cs:player+10], player_standing_2
+	mov word[cs:player+12], player_standing_3
+	mov word[cs:player+14], 0
 	jmp .ret_kbd
 
 .coord_move:

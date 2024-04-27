@@ -8,8 +8,6 @@ pop es
 xor bx, bx
 int 13h
 
-push startup_ds
-pop ds
 push 0xA000
 pop es
 push 0x9000

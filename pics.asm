@@ -8,28 +8,19 @@ file "res/class3.pmb":4
 
 times 65536-$ db 0
 org 0
-
 db 0
-player_standing_1:
-	file "res/1.pmb"
-
 start_menu:
+	file "res/fonFinal.pmb":4
 
-player_standing_2:
-	
-player_running_left_1:
-	file "res/2.pmb"
-	
-player_running_left_2:
-	file "res/3.pmb"
+times 65536-$ db 0
+org 0
 
-player_running_left_3:
-	file "res/4.pmb"
+include "pics_inc/player_pics.asm"
+include "pics_inc/enemy_pics.asm"
+include "pics_inc/indicators_pics.asm"
 
-player_running_right_1:
 
-player_running_right_2:
-	
+
 
 times 65536-$ db 0
 org 0

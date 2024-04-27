@@ -11,7 +11,7 @@ player:
 .ds:
 	dw 0
 .pics:
-	dw 0, 0, 0, 0
+	dw 0, 0, 0, 0, 0, 0, 0, 0
 player_struct_size = $-player
 
 npc1:
@@ -22,7 +22,7 @@ npc1:
 .ds:
 	dw 0
 .pics:
-	dw 0, 0, 0, 0
+	dw 0, 0, 0, 0, 0, 0, 0, 0
 
 npc2:
 .data:
@@ -32,7 +32,7 @@ npc2:
 .ds:
 	dw 0
 .pics:
-	dw 0, 0, 0, 0
+	dw 0, 0, 0, 0, 0, 0, 0, 0
 
 npc3:
 .data:
@@ -42,7 +42,7 @@ npc3:
 .ds:
 	dw 0
 .pics:
-	dw 0, 0, 0, 0
+	dw 0, 0, 0, 0, 0, 0, 0, 0
 
 npc4:
 .data:
@@ -52,7 +52,7 @@ npc4:
 .ds:
 	dw 0
 .pics:
-	dw 0, 0, 0, 0
+	dw 0, 0, 0, 0, 0, 0, 0, 0
 
 npc5:
 .data:
@@ -62,7 +62,7 @@ npc5:
 .ds:
 	dw 0
 .pics:
-	dw 0, 0, 0, 0
+	dw 0, 0, 0, 0, 0, 0, 0, 0
 
 npc6:
 .data:
@@ -72,7 +72,7 @@ npc6:
 .ds:
 	dw 0
 .pics:
-	dw 0, 0, 0, 0
+	dw 0, 0, 0, 0, 0, 0, 0, 0
 
 npc7:
 .data:
@@ -82,7 +82,7 @@ npc7:
 .ds:
 	dw 0
 .pics:
-	dw 0, 0, 0, 0
+	dw 0, 0, 0, 0, 0, 0, 0, 0
 
 npc8:
 .data:
@@ -92,6 +92,6 @@ npc8:
 .ds:
 	dw 0
 .pics:
-	dw 0, 0, 0, 0
+	dw 0, 0, 0, 0, 0, 0, 0, 0
 
 
