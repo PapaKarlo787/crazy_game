@@ -22,6 +22,7 @@ mov ax, 0
 int 16h
 
 call setup_handlers
+
 mov word [cs:background], background_pic
 mov word [cs:background.ds], startup_ds
 
@@ -79,8 +80,8 @@ mov word [cs:npc5.data+16], angry5
 mov word [cs:npc5.data+18], angry6
 mov word [cs:npc5.data+20], 0
 
-mov bx, 301
-mov ax, lion
+mov bx, 35
+mov ax, loading
 mov cx, startup_ds + 0x3000
 call play_mus
 
